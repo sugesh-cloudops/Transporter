@@ -35,3 +35,10 @@ module "eks" {
   node_groups = var.node_groups
 }
 
+module "iam_user" {
+  source = "./modules/iam-user"
+  cluster_name = var.cluster_name
+  eks_cluster = module.eks.eks_cluster
+
+
+}

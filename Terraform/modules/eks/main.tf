@@ -24,6 +24,9 @@ resource "aws_eks_cluster" "main" {
   vpc_config {
     subnet_ids = var.subnet_ids
   }
+   access_config {
+    authentication_mode = "API_AND_CONFIG_MAP"
+  }
   depends_on = [aws_iam_role_policy_attachment.cluster_policy]
 }
 resource "aws_iam_role" "node" {
