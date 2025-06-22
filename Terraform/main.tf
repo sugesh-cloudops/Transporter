@@ -84,3 +84,10 @@ module "metric_server" {
 
   depends_on = [module.eks]
 }
+
+module "pod_identity" {
+  source        = "./modules/pod-identity"
+  cluster_name  = module.eks.cluster_name
+  addon_version = "v0.2.0-eksbuild.1"
+
+}
